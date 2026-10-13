@@ -1,0 +1,175 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentaires ELYUS</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+            color: #222;
+        }
+
+        .elyus-comment-box {
+            max-width: 450px;
+            margin: 20px auto;
+            padding: 24px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .elyus-comment-box h2 {
+            margin-top: 0;
+            color: #155eef;
+            text-align: center;
+        }
+
+        .elyus-comment-box p {
+            color: #555;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .elyus-comment-box label {
+            display: block;
+            margin: 16px 0 7px;
+            font-weight: bold;
+        }
+
+        .elyus-comment-box input,
+        .elyus-comment-box textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d0d5dd;
+            border-radius: 9px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .elyus-comment-box textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .elyus-comment-box input:focus,
+        .elyus-comment-box textarea:focus {
+            outline: 2px solid #155eef;
+            border-color: transparent;
+        }
+
+        .elyus-comment-box button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .elyus-comment-box button:hover {
+            background: #1da851;
+        }
+
+        .elyus-comment-box .note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="elyus-comment-box">
+
+    <h2>💬 Commentaires ELYUS</h2>
+
+    <p>
+        Votre avis nous intéresse !<br>
+        Envoyez-nous vos suggestions,
+        questions ou commentaires.
+    </p>
+
+    <form id="elyusCommentForm">
+
+        <label for="username">Nom d'utilisateur</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="Ex. : Elyus123"
+            maxlength="50"
+            required
+        >
+
+        <label for="comment">Votre commentaire</label>
+        <textarea
+            id="comment"
+            placeholder="Écrivez votre commentaire ici..."
+            maxlength="3000"
+            required
+        ></textarea>
+
+        <button type="submit">
+            📲 Envoyer sur WhatsApp
+        </button>
+
+    </form>
+
+    <p class="note">
+        Votre WhatsApp s'ouvrira avec votre message.
+        Vous devrez confirmer l'envoi dans WhatsApp.
+    </p>
+
+</div>
+
+<script>
+    document.getElementById("elyusCommentForm")
+        .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const username = document
+            .getElementById("username")
+            .value.trim();
+
+        const comment = document
+            .getElementById("comment")
+            .value.trim();
+
+        if (!username || !comment) {
+            alert("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        const numeroWhatsApp = "237696969273";
+
+        const message =
+            "💬 NOUVEAU COMMENTAIRE - ELYUS\n\n" +
+            "👤 Utilisateur : " + username + "\n\n" +
+            "📝 Commentaire :\n" + comment;
+
+        const url =
+            "https://wa.me/" + numeroWhatsApp +
+            "?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank", "noopener,noreferrer");
+    });
+</script>
+
+</body>
+</html>
+```
